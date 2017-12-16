@@ -1,0 +1,37 @@
+{
+  "manifest_version": 2,
+
+  "name": "Textolighter", //nom
+  "description": "Highlight the text.", // description
+  "version": "1.0", // version
+
+  "browser_action": {
+    "default_icon": "assets/img/Icon/Highlighter128.png",  // Icone de l'extension
+  	"default_title": "Textolighter"  // Titre affiche sur le titre
+  },
+  
+  "icons": { "16": "assets/img/Icon/Highlighter16.png", // ICone de l'extension dans la liste des extensions
+           "48": "assets/img/Icon/Highlighter48.png",
+          "128": "assets/img/Icon/Highlighter128.png" 
+  },
+
+  "background": {
+        "scripts": ["background.js"]
+    },
+
+  "permissions": [
+  	 "tabs", "http://*/*", "https://*/*", "storage","activeTab","identity","identity.email" //détermine pour quelles pages le script sera utilisé
+  ],
+
+   "author": "hakim chrifi alaoui",
+
+   "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["assets/js/jquery-2.2.0.min.js","assets/bootstrap/js/bootstrap.min.js","assets/js/toolbar.js"]
+    }
+  ],
+  "web_accessible_resources":[
+    "toolbar.html"
+  ]
+}
